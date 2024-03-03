@@ -44,12 +44,18 @@ public class SpotifyRepository {
     }
 
     public Artist createArtist(String name) {
+        for(Artist artist:artists)
+            if(name.equals(artist.getName()))
+                return artist;
         Artist artist=new Artist(name);
         artists.add(artist);
         return artist;
     }
 
     public Album createAlbum(String title, String artistName) {
+        for(Album album:albums)
+            if(title.equals(album.getTitle()))
+                return album;
         Album album=new Album(title);
         albums.add(album);
         Artist artist=findArtist(artistName);
